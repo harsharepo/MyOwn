@@ -1,0 +1,6 @@
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\MailSending\bin\Release\MailSending.dll.config
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\MailSending\bin\Release\MailSending.dll
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\MailSending\bin\Release\MailSending.pdb
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\MailSending\obj\Release\MailSending.csprojResolveAssemblyReference.cache
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\MailSending\obj\Release\MailSending.dll
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\MailSending\obj\Release\MailSending.pdb

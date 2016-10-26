@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\TFS_WorkingFolder\VedicaMainWebApp</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>08/24/2016 14:41:22</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>08/24/2016 22:39:58</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>08/24/2016 22:39:58</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>07/23/2016 13:59:55</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>07/23/2016 13:59:56</publishTime>
+    </File>
+    <File Include="bin/MailSending.dll">
+      <publishTime>08/24/2016 22:39:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/23/2016 21:11:21</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>08/24/2016 14:41:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>07/19/2016 10:12:35</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>07/19/2016 10:12:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>08/24/2016 14:41:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>07/19/2016 10:12:34</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>07/19/2016 10:12:35</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>07/19/2016 10:12:35</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>07/19/2016 10:12:35</publishTime>
+    </File>
+    <File Include="bin/Vedica.dll">
+      <publishTime>08/24/2016 22:39:50</publishTime>
+    </File>
+    <File Include="bin/VedicaModel.dll">
+      <publishTime>08/24/2016 22:39:49</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>08/24/2016 14:41:30</publishTime>
+    </File>
+    <File Include="Content/animate.min.css">
+      <publishTime>07/23/2016 14:07:01</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>07/23/2016 14:07:07</publishTime>
+    </File>
+    <File Include="Content/font-awesome.css">
+      <publishTime>07/23/2016 14:22:24</publishTime>
+    </File>
+    <File Include="Content/font-awesome.min.css">
+      <publishTime>07/23/2016 14:05:49</publishTime>
+    </File>
+    <File Include="Content/jquery.fancybox-buttons.css">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Content/jquery.fancybox-thumbs.css">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Content/jquery.fancybox.css">
+      <publishTime>08/07/2016 23:24:06</publishTime>
+    </File>
+    <File Include="Content/loader.css">
+      <publishTime>07/23/2016 14:07:23</publishTime>
+    </File>
+    <File Include="Content/medical-guide-icons.css">
+      <publishTime>07/23/2016 14:07:26</publishTime>
+    </File>
+    <File Include="Content/navigation.css">
+      <publishTime>08/24/2016 17:28:50</publishTime>
+    </File>
+    <File Include="Content/owl.carousel.css">
+      <publishTime>07/23/2016 14:07:33</publishTime>
+    </File>
+    <File Include="Content/owl.transitions.css">
+      <publishTime>07/23/2016 14:07:36</publishTime>
+    </File>
+    <File Include="Content/settings.css">
+      <publishTime>07/23/2016 14:07:39</publishTime>
+    </File>
+    <File Include="Content/style.css">
+      <publishTime>08/07/2016 23:29:52</publishTime>
+    </File>
+    <File Include="Content/zerogrid.css">
+      <publishTime>07/23/2016 14:07:45</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.eot">
+      <publishTime>07/23/2016 14:05:49</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.svg">
+      <publishTime>07/23/2016 14:05:49</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.ttf">
+      <publishTime>07/23/2016 14:05:49</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.woff">
+      <publishTime>07/23/2016 14:05:49</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.woff2">
+      <publishTime>07/23/2016 14:24:57</publishTime>
+    </File>
+    <File Include="fonts/FontAwesome.otf">
+      <publishTime>07/23/2016 14:05:49</publishTime>
+    </File>
+    <File Include="fonts/medical-guide-icons.ttf">
+      <publishTime>07/23/2016 14:25:22</publishTime>
+    </File>
+    <File Include="fonts/opensans-bold-webfont.eot">
+      <publishTime>07/23/2016 14:43:56</publishTime>
+    </File>
+    <File Include="fonts/opensans-bold-webfont.svg">
+      <publishTime>07/23/2016 14:45:02</publishTime>
+    </File>
+    <File Include="fonts/opensans-bold-webfont.ttf">
+      <publishTime>07/23/2016 14:44:20</publishTime>
+    </File>
+    <File Include="fonts/opensans-bold-webfont.woff">
+      <publishTime>07/23/2016 14:40:39</publishTime>
+    </File>
+    <File Include="fonts/opensans-bold-webfont.woff2">
+      <publishTime>07/23/2016 14:46:22</publishTime>
+    </File>
+    <File Include="fonts/opensans-regular-webfont.eot">
+      <publishTime>07/23/2016 14:42:00</publishTime>
+    </File>
+    <File Include="fonts/opensans-regular-webfont.svg">
+      <publishTime>07/23/2016 14:42:34</publishTime>
+    </File>
+    <File Include="fonts/opensans-regular-webfont.ttf">
+      <publishTime>07/23/2016 14:34:26</publishTime>
+    </File>
+    <File Include="fonts/opensans-regular-webfont.woff">
+      <publishTime>07/23/2016 14:41:11</publishTime>
+    </File>
+    <File Include="fonts/opensans-regular-webfont.woff2">
+      <publishTime>07/23/2016 14:25:42</publishTime>
+    </File>
+    <File Include="fonts/opensans-semibold-webfont.eot">
+      <publishTime>07/23/2016 14:46:56</publishTime>
+    </File>
+    <File Include="fonts/opensans-semibold-webfont.svg">
+      <publishTime>07/23/2016 14:47:17</publishTime>
+    </File>
+    <File Include="fonts/opensans-semibold-webfont.ttf">
+      <publishTime>07/23/2016 14:34:26</publishTime>
+    </File>
+    <File Include="fonts/opensans-semibold-webfont.woff">
+      <publishTime>07/23/2016 14:47:50</publishTime>
+    </File>
+    <File Include="fonts/opensans-semibold-webfont.woff2">
+      <publishTime>07/23/2016 14:26:03</publishTime>
+    </File>
+    <File Include="fonts/raleway-bold-webfont.woff2">
+      <publishTime>07/23/2016 14:26:20</publishTime>
+    </File>
+    <File Include="fonts/raleway-light-webfont.woff2">
+      <publishTime>07/23/2016 14:26:41</publishTime>
+    </File>
+    <File Include="fonts/raleway-regular-webfont.woff2">
+      <publishTime>07/23/2016 14:27:08</publishTime>
+    </File>
+    <File Include="fonts/raleway-semibold-webfont.woff2">
+      <publishTime>07/23/2016 14:27:29</publishTime>
+    </File>
+    <File Include="Images/01.png">
+      <publishTime>07/27/2016 13:18:41</publishTime>
+    </File>
+    <File Include="Images/02.jpg">
+      <publishTime>07/27/2016 13:21:11</publishTime>
+    </File>
+    <File Include="Images/03.png">
+      <publishTime>07/27/2016 13:23:18</publishTime>
+    </File>
+    <File Include="Images/04.jpg">
+      <publishTime>07/27/2016 13:24:41</publishTime>
+    </File>
+    <File Include="Images/Abhyagam-Shirodhara.png">
+      <publishTime>08/02/2016 10:12:25</publishTime>
+    </File>
+    <File Include="Images/Arthritis.png">
+      <publishTime>08/02/2016 11:01:00</publishTime>
+    </File>
+    <File Include="Images/baby-birth.jpg">
+      <publishTime>07/23/2016 14:08:38</publishTime>
+    </File>
+    <File Include="Images/blank.gif">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Images/Detoxification.png">
+      <publishTime>08/02/2016 11:45:01</publishTime>
+    </File>
+    <File Include="Images/fancybox_loading%402x.gif">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Images/fancybox_loading.gif">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Images/fancybox_overlay.png">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Images/fancybox_sprite%402x.png">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Images/fancybox_sprite.png">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Images/Fruit-Massage.png">
+      <publishTime>08/02/2016 10:35:41</publishTime>
+    </File>
+    <File Include="Images/Hair-Loss-Dandruff.png">
+      <publishTime>08/02/2016 11:20:17</publishTime>
+    </File>
+    <File Include="Images/header-banner.png">
+      <publishTime>08/07/2016 23:29:00</publishTime>
+    </File>
+    <File Include="Images/logo.png">
+      <publishTime>08/01/2016 11:31:57</publishTime>
+    </File>
+    <File Include="Images/logoOld.png">
+      <publishTime>07/23/2016 14:09:22</publishTime>
+    </File>
+    <File Include="Images/medical-surgery.jpg">
+      <publishTime>07/23/2016 14:09:26</publishTime>
+    </File>
+    <File Include="Images/news1.jpg">
+      <publishTime>07/23/2016 14:09:32</publishTime>
+    </File>
+    <File Include="Images/news2.jpg">
+      <publishTime>07/23/2016 14:09:36</publishTime>
+    </File>
+    <File Include="Images/news3.jpg">
+      <publishTime>07/23/2016 14:09:40</publishTime>
+    </File>
+    <File Include="Images/paralax-half.jpg">
+      <publishTime>07/23/2016 14:09:44</publishTime>
+    </File>
+    <File Include="Images/Post-Natal-Care.png">
+      <publishTime>08/02/2016 10:42:26</publishTime>
+    </File>
+    <File Include="Images/Saanthwanam.png">
+      <publishTime>08/02/2016 11:39:26</publishTime>
+    </File>
+    <File Include="Images/service-doctor.jpg">
+      <publishTime>07/29/2016 12:10:58</publishTime>
+    </File>
+    <File Include="Images/Skin-Diseases.png">
+      <publishTime>08/02/2016 11:06:31</publishTime>
+    </File>
+    <File Include="Images/specialist1.jpg">
+      <publishTime>07/23/2016 14:09:48</publishTime>
+    </File>
+    <File Include="Images/specialist2.jpg">
+      <publishTime>07/23/2016 14:09:54</publishTime>
+    </File>
+    <File Include="Images/Stress-Away-Combined.png">
+      <publishTime>08/02/2016 10:19:40</publishTime>
+    </File>
+    <File Include="Images/Tummy-Inch-Loss.png">
+      <publishTime>08/02/2016 11:31:51</publishTime>
+    </File>
+    <File Include="Images/Weight-Loss.png">
+      <publishTime>08/02/2016 11:27:01</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>08/24/2016 16:29:41</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>08/24/2016 22:39:53</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-datetimepicker.min.js">
+      <publishTime>07/23/2016 14:10:09</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>07/23/2016 14:10:16</publishTime>
+    </File>
+    <File Include="Scripts/fancy/helpers/fancybox_buttons.png">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Scripts/fancy/helpers/jquery.fancybox-buttons.js">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Scripts/fancy/helpers/jquery.fancybox-media.js">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Scripts/fancy/helpers/jquery.fancybox-thumbs.js">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Scripts/fancy/jquery.fancybox.css">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Scripts/fancy/jquery.fancybox.js">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Scripts/fancy/jquery.fancybox.pack.js">
+      <publishTime>08/07/2016 17:59:53</publishTime>
+    </File>
+    <File Include="Scripts/functions.js">
+      <publishTime>08/24/2016 17:37:26</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>07/23/2016 14:02:23</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>07/23/2016 14:02:23</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>07/23/2016 14:02:23</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.2.3.js">
+      <publishTime>07/23/2016 14:10:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery.fancybox.js">
+      <publishTime>07/23/2016 14:10:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery.geolocation.edit.min.js">
+      <publishTime>07/23/2016 14:10:36</publishTime>
+    </File>
+    <File Include="Scripts/jquery.mixitup.min.js">
+      <publishTime>07/23/2016 14:10:39</publishTime>
+    </File>
+    <File Include="Scripts/jquery.parallax-1.1.3.js">
+      <publishTime>07/23/2016 14:10:41</publishTime>
+    </File>
+    <File Include="Scripts/jquery.themepunch.revolution.min.js">
+      <publishTime>07/23/2016 14:10:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery.themepunch.tools.min.js">
+      <publishTime>07/23/2016 14:10:47</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>07/23/2016 14:02:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>07/23/2016 14:02:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>07/23/2016 14:02:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>07/23/2016 14:02:25</publishTime>
+    </File>
+    <File Include="Scripts/owl.carousel.min.js">
+      <publishTime>07/23/2016 14:10:50</publishTime>
+    </File>
+    <File Include="Scripts/parallax.js">
+      <publishTime>07/23/2016 14:10:55</publishTime>
+    </File>
+    <File Include="Scripts/revolution.extension.layeranimation.min.js">
+      <publishTime>07/23/2016 14:11:00</publishTime>
+    </File>
+    <File Include="Scripts/revolution.extension.navigation.min.js">
+      <publishTime>07/23/2016 14:11:03</publishTime>
+    </File>
+    <File Include="Scripts/revolution.extension.parallax.min.js">
+      <publishTime>07/23/2016 14:11:05</publishTime>
+    </File>
+    <File Include="Scripts/revolution.extension.slideanims.min.js">
+      <publishTime>07/23/2016 14:11:08</publishTime>
+    </File>
+    <File Include="Scripts/revolution.extension.video.min.js">
+      <publishTime>07/23/2016 14:11:10</publishTime>
+    </File>
+    <File Include="Scripts/slider.js">
+      <publishTime>07/23/2016 14:11:12</publishTime>
+    </File>
+    <File Include="Views/Home/Ayurveda.cshtml">
+      <publishTime>08/24/2016 13:36:00</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>08/24/2016 13:18:45</publishTime>
+    </File>
+    <File Include="Views/Home/Gallery.cshtml">
+      <publishTime>08/24/2016 14:16:32</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>08/24/2016 15:26:51</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>08/24/2016 17:51:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_Offers.cshtml">
+      <publishTime>08/11/2016 17:47:17</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>08/24/2016 16:24:18</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>07/23/2016 14:02:33</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/24/2016 22:39:51</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

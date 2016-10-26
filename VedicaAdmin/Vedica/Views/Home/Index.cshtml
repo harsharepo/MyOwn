@@ -1,0 +1,277 @@
+﻿@model Vedica.Controllers.MergedIndexClasses
+@{
+    var sliderImages = Model.sldrImages;
+    var trDetails = Model.treatDetails;
+    ViewBag.Title = "Vedica Ayurveda";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!--Slider-->
+<section class="slider-main">
+
+    <div class="rev_slider_wrapper">
+        <!-- START REVOLUTION SLIDER 5.0 auto mode -->
+        <div id="rev_slider" class="rev_slider" data-version="5.0">
+            <ul>
+                <!-- SLIDE  -->
+               @foreach (var item in sliderImages)
+               {
+                   <li data-transition="fade">
+                    <!-- MAIN IMAGE -->
+                    <img src=@item.ImageFiles.FilePath alt="@item.SliderImageId" data-bgposition="center center" data-bgfit="cover">
+                    <!-- LAYER NR. 1 -->
+                    <h1 class="tp-caption tp-resizeme"
+                        data-x="left" data-hoffset="15"
+                        data-y="200" data-width="full"
+                        data-transform_idle="o:1;"
+                        data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
+                        data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
+                        data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                        data-mask_out="x:0;y:0;s:inherit;e:inherit;"
+                        data-start="500"
+                        data-splitin="none"
+                        data-splitout="none"
+                        style="z-index: 6;">
+                        <span>@item.CaptionHeading</span>
+                    </h1>
+
+                    <p class="tp-caption  tp-resizeme"
+                       data-x="left" data-hoffset="15"
+                       data-y="340"
+                       data-width="full"
+                       data-transform_idle="o:1;"
+                       data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
+                       data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
+                       data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                       data-mask_out="x:0;y:0;s:inherit;e:inherit;"
+                       data-start="800">
+                        @item.CaptionDetails
+                    </p>
+                </li>
+               }
+            </ul>
+        </div><!-- END REVOLUTION SLIDER -->
+    </div>
+
+</section>
+<section class="toggler">
+    <h3 class="hidden">hidden</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="clientsDropDown text-center">
+                    <div class="toggle-button">
+
+                        <span class="btn-slide"><i class="icon-chevron-thin-up"></i><i class="icon-chevron-thin-down"></i>Make an appointment</span>
+                    </div>
+                    <div class="form-container" style="display:none;">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <div id="result"></div>
+                            </div>
+                        </div>
+                        <form action="/Home/SendEmail" method="post">
+                            <div class="row">
+                                <div class="form-group col-md-3 col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Name" name="name" id="name" required>
+                                </div>
+                                <div class="form-group col-md-3 col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Phone No" name="phone" id="phone" required>
+                                </div>
+                                <div class="form-group col-md-3 col-sm-6">
+                                    <input type="email" class="form-control" placeholder="Email address" name="email" id="email" required>
+                                </div>
+                                <div class="form-group col-md-3 col-sm-6">
+                                    <input type="date" class="form-control" id="app_date" name="app_date" placeholder="Appointment Date">
+                                </div>
+                                <div class="form-group col-md-3 col-sm-6">
+                                   <select name="center" id="center" class="form-control">
+                                       <option value="Arekere">Arekere</option>
+                                       <option value="Vijaynagar">Vijaynagar</option>
+                                   </select>
+                                </div>
+                                <div class="col-md-10 col-sm-10">
+                                    <textarea placeholder="Message" cols="11" id="message" name="message" required></textarea>
+                                </div>
+                                <div class="col-md-2 col-sm-2">
+                                    <button type="submit" class="button3" id="btn_app_submit">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>     
+
+
+<!-- Specialists -->
+<section id="specialists" class="bg_grey padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="heading">Vedica Special</h2>
+                <hr class="heading_space">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="specialists_wrap_slider">
+                    <div id="specialist-slider" class="owl-carousel">
+                        <div class="item">
+                            <div class="specialist_info">
+                                <h3>Weight reduction</h3>
+                                <small>Duration: 14 / 21 / 26 Days</small>
+                                <p>Remove the bad cholesterol, Reduce weight, Perfect body shape and healthy body, Reduce body stiffness, Reduce chance of getting PCOS, Give flexibility</p>
+                                <a href="#">Read more... <i class="fa fa-book"></i></a>
+                            </div>
+                            <div class="specialist_photo">
+                                <img src="~/Images/Weight-Loss.png" alt="Docotor">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="specialist_info">
+                                <h3>Tummy inch loss Program</h3>
+                                <small>Duration: 14 / 28 Days</small>
+                                <p>
+                                    Reduce the belly fat in 14 days, Perfect shape for belly, Deplete fat and strengthens the muscles, Removes impurities and dead skin cells.
+                                </p>
+                                <a href="#">Read more... <i class="fa fa-book"></i></a>
+                            </div>
+                            <div class="specialist_photo">
+                                <img src="~/Images/Tummy-Inch-Loss.png" alt="Docotor">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="specialist_info">
+                                <h3>Saanthwanam- (Therapy for Muscles & Joints) </h3>
+                                <small>Duration: 7 / 14 / 28 days</small>
+                                <p>
+                                    Vedica Ayurveda has unique programs to relieve you of those old age pains through the Saanthwanam treatment methodology.
+                                </p>
+                                <a href="#">Read more... <i class="fa fa-book"></i></a>
+                            </div>
+                            <div class="specialist_photo">
+                                <img src="~/Images/Saanthwanam.png" alt="Docotor">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="specialist_info">
+                                <h3>Mukthi (Detoxofication)</h3>
+                                <small>Duration: 7 / 14 / 28 days</small>
+                                <p>
+                                    Mukthi is designed to help you achieve freedom from all toxic and negative elements accumulated in our body.
+                                </p>
+                                <a href="#">Read more... <i class="fa fa-book"></i></a>
+                            </div>
+                            <div class="specialist_photo">
+                                <img src="~/Images/Detoxification.png" alt="Docotor">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="specialists" class="bg_grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="heading">Our Therapies</h2>
+                <hr class="heading_space">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="specialists_wrap_slider">
+                    <div id="specialist-slider" class="owl-carousel">
+                        <div class="item">
+                            <div class="specialist_info">
+                                <h3>Abyangam+ Shirodara</h3>
+                                <small>Duration: 75 minutes</small>
+                                <p>Reduce muscle pain, joins pain, headache and stress, Give Sound sleep, Give flexibility and relaxation</p>
+                                <a href="#">Read more... <i class="fa fa-book"></i></a>
+                            </div>
+                            <div class="specialist_photo">
+                                <img src="~/Images/Abhyagam-Shirodhara.png" alt="Docotor">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="specialist_info">
+                                <h3>Stress Away</h3>
+                                <small>Duration: 90 minutes</small>
+                                <p>It relieves the muscle pains and aches, swelling on the feet, headache, sleep disturbance, constipation and other discomforts of jetlag.</p>
+                                <a href="#">Read more... <i class="fa fa-book"></i></a>
+                            </div>
+                            <div class="specialist_photo">
+                                <img src="~/Images/Stress-Away-Combined.png" alt="Docotor">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="specialist_info">
+                                <h3>Sringara(Fruit massage)</h3>
+                                <small>Duration: 90 minutes</small>
+                                <p>Fruits are known to be nature's true cleansers, softeners, nourishes and coolers of our body. A variety of fruits and herbs are blended to make a paste and massaged on to the body. Refreshed and rejuvinated.</p>
+                                <a href="#">Read more... <i class="fa fa-book"></i></a>
+                            </div>
+                            <div class="specialist_photo">
+                                <img src="~/Images/Fruit-Massage.png" alt="Docotor">
+                            </div>
+                        </div>
+                        @*<div class="item">
+                            <div class="specialist_info">
+                                <h2>04</h2>
+                                <h3>JanuVasthy</h3>
+                                <small>Duration: 45 minutes</small>
+                                <p>JanuVasthy is done on Knee joints.. A reservoir is built around the knee joints and filled with lukewarm medicinal oil,
+which alleviates pain and strengthens the joint.</p>
+                                <a href="#">Read more... <i class="fa fa-book"></i></a>
+                            </div>
+                            <div class="specialist_photo">
+                                <img src="~/Images/04.jpg" alt="Docotor">
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="specialists" class="bg_grey padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="heading">Our Treatments</h2>
+                <hr class="heading_space">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="specialists_wrap_slider">
+                    <div id="specialist-slider" class="owl-carousel">
+                        @foreach (var item in trDetails)
+                        {
+                            <div class="item">
+                                <div class="specialist_info">
+                                    <h3>@item.Name</h3>
+                                    @*<small>Duration: 14 / 21 / 26 Days</small>*@
+                                    <p>@item.Desription</p>
+                                    <a href="/Treatment/Details/@item.Id">Read more... <i class="fa fa-book"></i></a>
+                                </div>
+                                <div class="specialist_photo">
+                                    <img src="@item.ImageFiles.FilePath" alt="Docotor">
+                                </div>
+                            </div>
+                        }
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

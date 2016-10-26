@@ -1,0 +1,10 @@
+﻿body {
+    font-family: "Segoe UI" !important;
+}
+.ui-sortable tr {
+    cursor:move;
+}
+.custom-alert{
+    padding: 4px;
+    margin-top:5px;
+}

@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VedicaAdmin", "VedicaAdmin\VedicaAdmin.csproj", "{6F7A788F-058A-41CA-AF8C-0C507C3BC728}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VedicaModel", "VedicaModel\VedicaModel.csproj", "{B0B92050-1728-4CBF-B368-A0176B8BFAD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vedica", "Vedica\Vedica.csproj", "{412B1784-312E-4740-A79E-054E63C8B515}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSending", "MailSending\MailSending.csproj", "{EF78FAFB-8641-4B7B-AFE4-F321C36E9ADE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{31DA87C9-C860-4C15-8DE7-A031901DFF76}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://reponow.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = VedicaAdmin\\VedicaAdmin.csproj
+		SccProjectName1 = VedicaAdmin
+		SccLocalPath1 = VedicaAdmin
+		SccProjectUniqueName2 = VedicaModel\\VedicaModel.csproj
+		SccProjectName2 = VedicaModel
+		SccLocalPath2 = VedicaModel
+		SccProjectUniqueName3 = Vedica\\Vedica.csproj
+		SccProjectName3 = Vedica
+		SccLocalPath3 = Vedica
+		SccProjectUniqueName4 = MailSending\\MailSending.csproj
+		SccProjectName4 = MailSending
+		SccLocalPath4 = MailSending
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F7A788F-058A-41CA-AF8C-0C507C3BC728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F7A788F-058A-41CA-AF8C-0C507C3BC728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F7A788F-058A-41CA-AF8C-0C507C3BC728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F7A788F-058A-41CA-AF8C-0C507C3BC728}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0B92050-1728-4CBF-B368-A0176B8BFAD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B92050-1728-4CBF-B368-A0176B8BFAD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B92050-1728-4CBF-B368-A0176B8BFAD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B92050-1728-4CBF-B368-A0176B8BFAD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{412B1784-312E-4740-A79E-054E63C8B515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412B1784-312E-4740-A79E-054E63C8B515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{412B1784-312E-4740-A79E-054E63C8B515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412B1784-312E-4740-A79E-054E63C8B515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF78FAFB-8641-4B7B-AFE4-F321C36E9ADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF78FAFB-8641-4B7B-AFE4-F321C36E9ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF78FAFB-8641-4B7B-AFE4-F321C36E9ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF78FAFB-8641-4B7B-AFE4-F321C36E9ADE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

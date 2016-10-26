@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Vedica.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SliderImagePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:55369//</Value>
+    </Setting>
+    <Setting Name="SliderImagePathWeb" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://admin.vedicaayurveda.co.in//</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

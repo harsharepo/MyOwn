@@ -1,0 +1,11 @@
+﻿@model List<VedicaModel.Offers>
+
+@{foreach (var item in Model)
+    {
+        <li>
+            <a href="@item.OfferLink" target="_blank">
+                @item.OfferName
+            </a>
+        </li>
+    }
+}

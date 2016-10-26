@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MailSending.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MailUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">noreply@vedicaayurveda.co.in</Value>
+    </Setting>
+    <Setting Name="MailPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Vedica.123</Value>
+    </Setting>
+    <Setting Name="MailSMTP" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtpout.asia.secureserver.net</Value>
+    </Setting>
+    <Setting Name="MailPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">80</Value>
+    </Setting>
+    <Setting Name="MailToUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">info@vedicaayurveda.co.in</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

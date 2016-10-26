@@ -1,0 +1,52 @@
+﻿@model IEnumerable<VedicaModel.Gallery>
+
+@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="page_header">
+    <div class="page_title">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="title">Gallery</h2>
+                    <div class="page_link"><a href="/Home">Home</a><span><i class="fa fa-long-arrow-right"></i>Gallery</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="gallery" class="padding-top">
+    <div class="container">
+        <div class="row">
+            <div class="zerogrid">
+                <div class="wrap-container">
+                    <div class="wrap-content clearfix">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-sm-4">
+                                <div class="mix work-item kids heading_space">
+                                    <div class="wrap-col">
+                                        <div class="item-container">
+                                            <div class="image">
+                                                <img src="@item.ImageFiles.FilePath" alt="work" />
+                                                <div class="overlay">
+                                                    <div class="overlay-inner">
+                                                        <a class="fancybox icon" href="@item.ImageFiles.FilePath" data-fancybox-group="gallery"><i class=" icon-eye6"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

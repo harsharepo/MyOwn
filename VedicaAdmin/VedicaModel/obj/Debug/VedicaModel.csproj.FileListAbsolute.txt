@@ -1,0 +1,10 @@
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\VedicaModel\bin\Debug\VedicaModel.dll.config
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\VedicaModel\bin\Debug\VedicaModel.dll
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\VedicaModel\bin\Debug\VedicaModel.pdb
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\VedicaModel\bin\Debug\EntityFramework.dll
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\VedicaModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\VedicaModel\bin\Debug\EntityFramework.xml
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\VedicaModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\VedicaModel\obj\Debug\VedicaModel.csprojResolveAssemblyReference.cache
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\VedicaModel\obj\Debug\VedicaModel.dll
+D:\TFS_WorkingFolder\Vedica-Ayurveda\VedicaAdmin\VedicaModel\obj\Debug\VedicaModel.pdb

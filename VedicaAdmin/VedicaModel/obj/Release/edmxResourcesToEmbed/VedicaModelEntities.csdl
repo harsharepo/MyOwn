@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VedicaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ImageFiles">
+    <Key>
+      <PropertyRef Name="FileGuid" />
+    </Key>
+    <Property Name="FileGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Size" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ContentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TreatmentDetails" Relationship="Self.FK_TreatmentDetails_ImageFiles" FromRole="ImageFiles" ToRole="TreatmentDetails" />
+    <NavigationProperty Name="SliderImages" Relationship="VedicaDBModel.FK_SliderImages_ImageFiles" FromRole="ImageFiles" ToRole="SliderImages" />
+    <NavigationProperty Name="Gallery" Relationship="VedicaDBModel.FK_Gallery_ImageFiles" FromRole="ImageFiles" ToRole="Gallery" />
+  </EntityType>
+  <EntityType Name="TreatmentDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Desription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TreatmentsId" Type="Int32" Nullable="false" />
+    <Property Name="ImageId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ImageFiles" Relationship="Self.FK_TreatmentDetails_ImageFiles" FromRole="TreatmentDetails" ToRole="ImageFiles" />
+    <NavigationProperty Name="Treatments" Relationship="Self.FK_TreatmentDetails_Treatments" FromRole="TreatmentDetails" ToRole="Treatments" />
+    <Property Name="OrderId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Treatments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TreatmentTypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TreatmentDetails" Relationship="Self.FK_TreatmentDetails_Treatments" FromRole="Treatments" ToRole="TreatmentDetails" />
+    <NavigationProperty Name="TreatmentTypes" Relationship="Self.FK_Treatments_TreatmentTypes" FromRole="Treatments" ToRole="TreatmentTypes" />
+    <Property Name="OrderId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TreatmentTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Treatments" Relationship="Self.FK_Treatments_TreatmentTypes" FromRole="TreatmentTypes" ToRole="Treatments" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="webpages_Roles" Relationship="Self.webpages_UsersInRoles" FromRole="Users" ToRole="webpages_Roles" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IsConfirmed" Type="Boolean" />
+    <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+    <Property Name="PasswordSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_TreatmentDetails_ImageFiles">
+    <End Role="ImageFiles" Type="Self.ImageFiles" Multiplicity="0..1" />
+    <End Role="TreatmentDetails" Type="Self.TreatmentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ImageFiles">
+        <PropertyRef Name="FileGuid" />
+      </Principal>
+      <Dependent Role="TreatmentDetails">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TreatmentDetails_Treatments">
+    <End Role="Treatments" Type="Self.Treatments" Multiplicity="1" />
+    <End Role="TreatmentDetails" Type="Self.TreatmentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Treatments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TreatmentDetails">
+        <PropertyRef Name="TreatmentsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Treatments_TreatmentTypes">
+    <End Role="TreatmentTypes" Type="Self.TreatmentTypes" Multiplicity="1" />
+    <End Role="Treatments" Type="Self.Treatments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TreatmentTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Treatments">
+        <PropertyRef Name="TreatmentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="webpages_UsersInRoles">
+    <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="VedicaDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ImageFiles" EntityType="Self.ImageFiles" />
+    <EntitySet Name="TreatmentDetails" EntityType="Self.TreatmentDetails" />
+    <EntitySet Name="Treatments" EntityType="Self.Treatments" />
+    <EntitySet Name="TreatmentTypes" EntityType="Self.TreatmentTypes" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" />
+    <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" />
+    <AssociationSet Name="FK_TreatmentDetails_ImageFiles" Association="Self.FK_TreatmentDetails_ImageFiles">
+      <End Role="ImageFiles" EntitySet="ImageFiles" />
+      <End Role="TreatmentDetails" EntitySet="TreatmentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TreatmentDetails_Treatments" Association="Self.FK_TreatmentDetails_Treatments">
+      <End Role="Treatments" EntitySet="Treatments" />
+      <End Role="TreatmentDetails" EntitySet="TreatmentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Treatments_TreatmentTypes" Association="Self.FK_Treatments_TreatmentTypes">
+      <End Role="TreatmentTypes" EntitySet="TreatmentTypes" />
+      <End Role="Treatments" EntitySet="Treatments" />
+    </AssociationSet>
+    <AssociationSet Name="webpages_UsersInRoles" Association="Self.webpages_UsersInRoles">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="SliderImages" EntityType="VedicaDBModel.SliderImages" />
+    <AssociationSet Name="FK_SliderImages_ImageFiles" Association="VedicaDBModel.FK_SliderImages_ImageFiles">
+      <End Role="ImageFiles" EntitySet="ImageFiles" />
+      <End Role="SliderImages" EntitySet="SliderImages" />
+    </AssociationSet>
+    <EntitySet Name="Gallery" EntityType="VedicaDBModel.Gallery" />
+    <AssociationSet Name="FK_Gallery_ImageFiles" Association="VedicaDBModel.FK_Gallery_ImageFiles">
+      <End Role="ImageFiles" EntitySet="ImageFiles" />
+      <End Role="Gallery" EntitySet="Gallery" />
+    </AssociationSet>
+    <EntitySet Name="Offers" EntityType="VedicaDBModel.Offers" />
+  </EntityContainer>
+  <EntityType Name="SliderImages">
+    <Key>
+      <PropertyRef Name="SliderImageId" />
+    </Key>
+    <Property Name="SliderImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaptionHeading" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CaptionDetails" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ImageId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ImageFiles" Relationship="VedicaDBModel.FK_SliderImages_ImageFiles" FromRole="SliderImages" ToRole="ImageFiles" />
+  </EntityType>
+  <Association Name="FK_SliderImages_ImageFiles">
+    <End Type="VedicaDBModel.ImageFiles" Role="ImageFiles" Multiplicity="1" />
+    <End Type="VedicaDBModel.SliderImages" Role="SliderImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ImageFiles">
+        <PropertyRef Name="FileGuid" />
+      </Principal>
+      <Dependent Role="SliderImages">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ImageId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ImageFiles" Relationship="VedicaDBModel.FK_Gallery_ImageFiles" FromRole="Gallery" ToRole="ImageFiles" />
+  </EntityType>
+  <Association Name="FK_Gallery_ImageFiles">
+    <End Type="VedicaDBModel.ImageFiles" Role="ImageFiles" Multiplicity="0..1" />
+    <End Type="VedicaDBModel.Gallery" Role="Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ImageFiles">
+        <PropertyRef Name="FileGuid" />
+      </Principal>
+      <Dependent Role="Gallery">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Offers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OfferName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OfferLink" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

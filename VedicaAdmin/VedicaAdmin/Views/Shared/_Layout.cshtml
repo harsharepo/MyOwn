@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vedica Ayurveda - Admin</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    @System.Web.Optimization.Styles.Render("~/bundles/css")
+    <script src="~/plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="index2.html" class="logo">
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>Vedica </b>Ayurveda</span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user-md"></i> <span class="hidden-xs">Alexander Pierce</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-right">
+                                        <a href="/Account/LogOut" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-heartbeat"></i>
+                            <span>Treatments</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/TreatmentTypes/Index"><i class="fa fa-circle-o"></i> Treatment Types</a></li>
+                            <li><a href="/Treatments/Index"><i class="fa fa-circle-o"></i> Treatments List</a></li>
+                            <li><a href="/Treatment/Index"><i class="fa fa-circle-o"></i> Treatment Details</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-laptop"></i>
+                            <span>Therapies</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Wellness Therapy</a></li>
+                            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Beauty Therapy</a></li>
+                            <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Treatments</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="/Gallery">
+                            <i class="fa fa-photo"></i> <span>Gallery</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/SliderImage">
+                            <i class="fa fa-image"></i> <span>Slider Images</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Offers">
+                            <i class="fa fa-shopping-bag"></i> <span>Special Offers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-shopping-bag"></i> <span>Vedica Offers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-user-plus"></i> <span>Membership and Packages</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.3.5
+            </div>
+            <strong>Copyright &copy; @DateTime.Now.Year <a href="http://vedicaayurveda.co.in">Vedica Ayurveda</a>.</strong> All rights
+            reserved.
+        </footer>
+    </div>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+    <script src="~/plugins/select2/select2.full.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            var dTable = $('table[id!=tblTreatmentTypes]').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "iDisplayLength": 6
+            });
+            var fixHelperModified = function (e, tr) {
+                var $originals = tr.children();
+                var $helper = tr.clone();
+                $helper.children().each(function (index) {
+                    $(this).width($originals.eq(index).width())
+                });
+                return $helper;
+            };
+            $("table[id=tblTreatmentTypes] tbody").sortable({
+                helper: fixHelperModified,
+                stop: function (event, ui) { renumber_table('table[id=tblTreatmentTypes] tbody') }
+            }).disableSelection();
+            $('.content-wrapper').css('min-height', '768px');
+            $('.content-wrapper').css('height', 'auto');
+            $(".select2").css("width", "100%");
+            $(".select2").select2();
+            $('.custom-alert').hide();
+        });
+        function renumber_table(tableID) {
+            var arrOrderArray = [];
+            $(tableID + " tr").each(function () {
+                count = $(this).parent().children().index($(this)) + 1;
+                $($(this).find('.priority').children()[0]).html(count);
+                var objOrder = new Object();
+                objOrder.Id = $($(this).find('.priority').children()[1]).val();
+                objOrder.OrderId = $($(this).find('.priority').children()[0]).html();
+                arrOrderArray.push(objOrder);
+            });
+            $.ajax({
+                url: "/Treatments/UpdateOrder",
+                data: { jsonArray: JSON.stringify(arrOrderArray) },
+                dataType: "json",
+                success: function (data) {
+                    
+                },
+                complete: function (data) {
+                    if (data.responseText == 'success') {
+                        window.location.reload();
+                    }
+                }
+            });
+        }
+    </script>
+    @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+</body>
+</html>

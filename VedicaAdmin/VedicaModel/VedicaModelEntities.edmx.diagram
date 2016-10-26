@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="508d26d5d9384236ac3dbee9606b4e3a" Name="Diagram1">
+        <EntityTypeShape EntityType="VedicaDBModel.ImageFiles" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VedicaDBModel.Treatments" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VedicaDBModel.TreatmentTypes" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VedicaDBModel.Users" Width="1.5" PointX="8" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VedicaDBModel.webpages_Membership" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VedicaDBModel.webpages_OAuthMembership" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VedicaDBModel.webpages_Roles" Width="1.5" PointX="5.75" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="VedicaDBModel.FK_Treatments_TreatmentTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="VedicaDBModel.webpages_UsersInRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="VedicaDBModel.SliderImages" Width="1.5" PointX="5.25" PointY="10.25" />
+        <AssociationConnector Association="VedicaDBModel.FK_SliderImages_ImageFiles" />
+        <EntityTypeShape EntityType="VedicaDBModel.Gallery" Width="1.5" PointX="5.25" PointY="13.5" />
+        <AssociationConnector Association="VedicaDBModel.FK_Gallery_ImageFiles" />
+        <EntityTypeShape EntityType="VedicaDBModel.Offers" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="VedicaDBModel.TreatmentDetails" Width="1.5" PointX="5.25" PointY="0.875" />
+        <AssociationConnector Association="VedicaDBModel.FK_TreatmentDetails_ImageFiles" />
+        <AssociationConnector Association="VedicaDBModel.FK_TreatmentDetails_Treatments" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

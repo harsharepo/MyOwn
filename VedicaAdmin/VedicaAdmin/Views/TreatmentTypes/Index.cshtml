@@ -1,0 +1,98 @@
+﻿@model List<VedicaModel.TreatmentTypes>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Treatment
+        <small> Types</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/Account/Home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Treatment Types</li>
+    </ol>
+</section>
+
+<div class="col-md-12">
+    <hr />
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped dataTable" id="tblTreatmentType">
+            <thead>
+                <tr>
+                    <th>Treatment Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td><button id='btnEditTreatmentType-@item.Id' type="button" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> Edit</button></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal" id="modalEditTreatmentType">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Edit</h4>
+                <input type="hidden" id="hdnEditTreatmentTypes" />
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control" placeholder="Treatment Type" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn pull-left btn-sm" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+                <button type="button" class="btn btn-primary btn-sm" data-save="save"><i class="fa fa-check"></i> Update</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('button[id^="btnEditTreatmentType"]').on("click", function () {
+            var getId = $(this).attr('id').split('-')[1];
+            $('#hdnEditTreatmentTypes').val(getId);
+            $('#modalEditTreatmentType .modal-body > input').val($(this).parent('td').prev().text());
+            $('#modalEditTreatmentType').modal('show');
+        });
+        $('#modalEditTreatmentType .modal-footer > button[data-save="save"]').on('click', function () {
+            if ($('#modalEditTreatmentType .modal-body > input').val().trim() == "") {
+                alert("Please enter the Treatment Type");
+                return;
+            }
+            $.ajax({
+                async: false,
+                url: "/TreatmentTypes/UpdateTreatmentTypes",
+                data: { id: $('#hdnEditTreatmentTypes').val(), treatmentTypeName: $('#modalEditTreatmentType .modal-body > input').val() },
+                dataType: "text",
+                success: function (data) {
+                    if (data != "true") {
+                        alert(data);
+                    }
+                    else {
+                        $('#modalEditTreatmentType').modal('hide');
+                        window.location.reload(true);
+                    }
+                },
+                error: function (data) {
+
+                }
+            });
+        });
+    });
+</script>

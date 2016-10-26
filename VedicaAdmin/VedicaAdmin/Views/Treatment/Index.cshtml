@@ -1,0 +1,197 @@
+﻿@model IEnumerable<VedicaModel.TreatmentDetails>
+
+@{
+    ViewBag.Title = "Treatment Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Treatment Details
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/Account/Home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Treatment Details</li>
+    </ol>
+</section>
+<div class="col-md-12">
+    <hr />
+    <a href="@Url.Action("Create")" class="btn btn-sm btn-info"><i class="fa fa-plus"></i> Create New</a>
+    <button id="btnSaveVisibility" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Save Visibility</button>
+    <div class="alert custom-alert" role="alert"></div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped dataTable" id="tblTreatmentDetails">
+            <thead>
+                <tr>
+                    <th>
+                        Treatment Name
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Main Treatment Name
+                    </th>
+                    <th>Visiblity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Desription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Treatments.Name)
+                    </td>
+                    <td>
+                        @Html.CheckBox("chkVisibility-" + item.Id, item.Visibility == "Y" ? true : false)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { Id = item.Id })" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> Edit</a>
+                        <button type="button" class="btn btn-xs btn-danger" id="btnDeleteTreatmentDetails-@item.Id"><i class="fa fa-remove"></i> Delete</button>
+                    </td>
+                </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal" id="modalDeleteTreatmentDetails">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Delete - <span id="spanDeleteTreatmentDetails"></span></h4>
+                <input type="hidden" id="hdnDeleteTreatmentDetails" />
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-primary" data-save="delete">Delete</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<script type="text/javascript">
+    $(function () {
+        if(checkVisibility($('#tblTreatmentDetails tbody')))
+            $('#btnSaveVisibility').removeAttr('disabled');
+        else
+            $('#btnSaveVisibility').attr('disabled', 'disabled');
+        $('button[id^="btnDeleteTreatmentDetails"]').on('click', function () {
+            var getId = $(this).attr('id').split('-')[1];
+            $('#hdnDeleteTreatmentDetails').val(getId);
+            $('#spanDeleteTreatmentDetails').html($($(this).parent('td').parent().children()[0]).text().trim());
+            $('#modalDeleteTreatmentDetails').modal('show');
+        });
+        $('#modalDeleteTreatmentDetails .modal-footer > button[data-save="delete"]').on('click', function () {
+            deleteTreatmentDetails();
+        });
+        $('[id^=chkVisibility]').change(function () {
+            if (checkVisibility($(this).parent('td').parent('tr').parent('tbody')))
+                $('#btnSaveVisibility').removeAttr('disabled');
+            else {
+                $('#btnSaveVisibility').attr('disabled', 'disabled');
+            }
+        });
+        $('#btnSaveVisibility').on('click', function () {
+            if (!maxFiveCheckBox()) {
+                alert('Please select a maximum of 5 items');
+            }
+        })
+    });
+    function deleteTreatmentDetails() {
+        $.ajax({
+            url: "/Treatment/DeleteTreatmentDetails",
+            data: { id: $('#hdnDeleteTreatmentDetails').val() },
+            dataType: "json",
+            success: function (data) {
+                if (data == true) {
+                    $('#modalDeleteTreatmentDetails').modal('hide');
+                    window.location.reload();
+                }
+                else {
+                    alert(data);
+                }
+            },
+            error: function (data) {
+                
+            }
+        });
+    }
+    var checkVisibility = function (tbody) {
+        var rows = $(tbody).children('tr');
+        var isTrue = false;
+        $.each(rows, function (i, v) {
+            if ($($($(v).children()[3]).children('input:checkbox')).prop('checked') == true) {
+                isTrue = true;
+                return false;
+            }
+        });
+        return isTrue;
+    }
+    function maxFiveCheckBox() {
+        var rows = $('#tblTreatmentDetails tbody tr');
+        var count = 0;
+        var saveTrue = true;
+        $.each(rows, function (i, v) {
+            var checkBoxChecked = $($(v).children()[3]).children('input:checkbox').prop('checked');
+            count++;
+        });
+        if (count > 5)
+            return saveTrue = false;
+        else {
+            saveVisibility();
+            return saveTrue = true;
+        }
+    }
+    function saveVisibility() {
+        var rows = $('#tblTreatmentDetails tbody tr');
+        $('.custom-alert').removeClass('alert-success,alert-danger');
+        var visibilityArray = [];
+        $.each(rows, function (i, v) {
+            var obj = new Object();
+            obj.Id = $($(v).children()[3]).children('input:checkbox').attr('id').split('-')[1];
+            obj.Visibility = $($(v).children()[3]).children('input:checkbox').prop('checked') == true ? "Y" : "N";
+            visibilityArray.push(obj);
+        });
+        $.ajax({
+            url: "/Treatment/SaveVisibility",
+            data: {json: JSON.stringify(visibilityArray)},
+            dataType: "json",
+            success: function (data) {
+
+            },
+            error: function (data) {
+
+            },
+            complete: function (data) {
+                if (data.responseText == "success") {
+                    $('.custom-alert').addClass('alert-success');
+                    $('.custom-alert').html('<i class="fa fa-check"></i> Visibility saved successfully');
+                    $('.custom-alert').show();
+                    setTimeout(function () { $('.custom-alert').hide(); }, 5000);
+                }
+                else {
+                    $('.custom-alert').addClass('alert-danger');
+                    $('.custom-alert').html('<i class="fa fa-remove"></i> ' + data);
+                    $('.custom-alert').show();
+                    setTimeout(function () { $('.custom-alert').hide(); }, 5000);
+                }
+            }
+        })
+    }
+</script>

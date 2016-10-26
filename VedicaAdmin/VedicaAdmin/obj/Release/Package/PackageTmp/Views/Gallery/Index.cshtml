@@ -1,0 +1,105 @@
+﻿@model IEnumerable<VedicaModel.Gallery>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Gallery
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/Account/Home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Gallery</li>
+    </ol>
+</section>
+
+<div class="col-md-12">
+    <hr />
+    <a href="@Url.Action("Create")" class="btn btn-sm btn-info"><i class="fa fa-plus"></i> Create New</a>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped dataTable" id="tblGallery">
+            <thead>
+                <tr>
+                    <th>
+                        Image Name
+                    </th>
+                    <th>
+                        Image
+                    </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            <img src="@item.ImageFiles.FilePath" width="100" height="50" />
+                        </td>
+                        <td>
+                            <button id="btnGalleryImageDelete-@item.Id" class="btn btn-xs btn-danger"><i class="fa fa-remove"></i> Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal" id="modalDeleteGalleryImages">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Warning <i class="fa fa-warning"></i></h4>
+                <input type="hidden" id="hdnDeleteGalleryImage" />
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+                <button type="button" class="btn btn-sm btn-primary" data-save="delete"><i class="fa fa-ban"></i> Delete</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#modalDeleteGalleryImages .modal-footer > button[data-save="delete"]').on('click', function () {
+            deleteSliderImage();
+        });
+        $('button[id^=btnGalleryImageDelete]').on('click', function () {
+            var getId = $(this).attr('id').split('-')[1];
+            $('#hdnDeleteGalleryImage').val(getId);
+            $('#modalDeleteGalleryImages').modal('show');
+        });
+    });
+    function deleteSliderImage() {
+        $.ajax({
+            url: "/Gallery/DeleteImage",
+            data: { id: $('#hdnDeleteGalleryImage').val() },
+            dataType: "json",
+            success: function (data) {
+                if (data == "true") {
+                    $('#modalDeleteGalleryImages').modal('hide');
+                    window.location.reload();
+                }
+                else {
+                    alert(data);
+                }
+            },
+            error: function (data) {
+
+            }
+        });
+    }
+</script>

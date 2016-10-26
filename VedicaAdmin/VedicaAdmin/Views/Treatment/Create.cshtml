@@ -1,0 +1,70 @@
+﻿@model VedicaModel.TreatmentDetails
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var lstTreatments = ViewBag.Treatments as List<SelectListItem>;
+}
+
+<section class="content-header">
+    <h1>
+        Create Treatment Details
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/Account/Home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Create Treatment Details</li>
+    </ol>
+
+</section>
+
+@using (Html.BeginForm("Create", "Treatment", FormMethod.Post, new
+{
+    enctype = "multipart/form-data"
+}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-md-12">
+        <hr />
+        <div class="box box-body">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="form-group col-md-6">
+                <label>Treatments List</label>
+                @Html.DropDownListFor(c => c.TreatmentsId, lstTreatments, new { @class = "select2" })
+            </div>
+            <div class="form-group col-md-6">
+                <label>Treatment Name</label>
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Treatment Name" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+
+            <div class="form-group col-md-12">
+                <label>Treatment Description</label>
+                @Html.TextAreaFor(model => model.Desription, new { @rows = 4, @class = "form-control", @placeholder = "Treatment Description" })
+                @Html.ValidationMessageFor(model => model.Desription)
+            </div>
+            <div class="form-group col-md-12">
+                <label>Choose Image <span style="color: red">(Width : 303px, Height : 362px)</span></label>
+                <input type="file" title="search image" id="file" name="file" onchange="show(this)" />
+                <div> <img id="user_img" height="100" width="100" style="border: 1px solid blue" /> </div>
+            </div>
+            <div class="form-group col-md-6">
+                <a href="@Url.Action("Index")" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left"></i> Back to List</a>
+                <input type="submit" value="Create" class="btn btn-sm btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    function show(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#user_img').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

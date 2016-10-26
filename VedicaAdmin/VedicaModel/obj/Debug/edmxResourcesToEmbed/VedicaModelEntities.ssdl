@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VedicaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImageId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ImageFiles">
+    <Key>
+      <PropertyRef Name="FileGuid" />
+    </Key>
+    <Property Name="FileGuid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FilePath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Size" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ContentType" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Offers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OfferName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OfferLink" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SliderImages">
+    <Key>
+      <PropertyRef Name="SliderImageId" />
+    </Key>
+    <Property Name="SliderImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaptionHeading" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="CaptionDetails" Type="varchar(max)" Nullable="false" />
+    <Property Name="ImageId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TreatmentDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Desription" Type="text" Nullable="false" />
+    <Property Name="TreatmentsId" Type="int" Nullable="false" />
+    <Property Name="ImageId" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="Visibility" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Treatments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="TreatmentTypeId" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" />
+  </EntityType>
+  <EntityType Name="TreatmentTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsConfirmed" Type="bit" />
+    <Property Name="LastPasswordFailureDate" Type="datetime" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordChangedDate" Type="datetime" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Gallery_ImageFiles">
+    <End Role="ImageFiles" Type="Self.ImageFiles" Multiplicity="0..1" />
+    <End Role="Gallery" Type="Self.Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ImageFiles">
+        <PropertyRef Name="FileGuid" />
+      </Principal>
+      <Dependent Role="Gallery">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RoleId">
+    <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="webpages_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SliderImages_ImageFiles">
+    <End Role="ImageFiles" Type="Self.ImageFiles" Multiplicity="1" />
+    <End Role="SliderImages" Type="Self.SliderImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ImageFiles">
+        <PropertyRef Name="FileGuid" />
+      </Principal>
+      <Dependent Role="SliderImages">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TreatmentDetails_ImageFiles">
+    <End Role="ImageFiles" Type="Self.ImageFiles" Multiplicity="0..1" />
+    <End Role="TreatmentDetails" Type="Self.TreatmentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ImageFiles">
+        <PropertyRef Name="FileGuid" />
+      </Principal>
+      <Dependent Role="TreatmentDetails">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TreatmentDetails_Treatments">
+    <End Role="Treatments" Type="Self.Treatments" Multiplicity="1" />
+    <End Role="TreatmentDetails" Type="Self.TreatmentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Treatments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TreatmentDetails">
+        <PropertyRef Name="TreatmentsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Treatments_TreatmentTypes">
+    <End Role="TreatmentTypes" Type="Self.TreatmentTypes" Multiplicity="1" />
+    <End Role="Treatments" Type="Self.Treatments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TreatmentTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Treatments">
+        <PropertyRef Name="TreatmentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VedicaDBModelStoreContainer">
+    <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageFiles" EntityType="Self.ImageFiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Offers" EntityType="Self.Offers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SliderImages" EntityType="Self.SliderImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TreatmentDetails" EntityType="Self.TreatmentDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Treatments" EntityType="Self.Treatments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TreatmentTypes" EntityType="Self.TreatmentTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Gallery_ImageFiles" Association="Self.FK_Gallery_ImageFiles">
+      <End Role="ImageFiles" EntitySet="ImageFiles" />
+      <End Role="Gallery" EntitySet="Gallery" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SliderImages_ImageFiles" Association="Self.FK_SliderImages_ImageFiles">
+      <End Role="ImageFiles" EntitySet="ImageFiles" />
+      <End Role="SliderImages" EntitySet="SliderImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TreatmentDetails_ImageFiles" Association="Self.FK_TreatmentDetails_ImageFiles">
+      <End Role="ImageFiles" EntitySet="ImageFiles" />
+      <End Role="TreatmentDetails" EntitySet="TreatmentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TreatmentDetails_Treatments" Association="Self.FK_TreatmentDetails_Treatments">
+      <End Role="Treatments" EntitySet="Treatments" />
+      <End Role="TreatmentDetails" EntitySet="TreatmentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Treatments_TreatmentTypes" Association="Self.FK_Treatments_TreatmentTypes">
+      <End Role="TreatmentTypes" EntitySet="TreatmentTypes" />
+      <End Role="Treatments" EntitySet="Treatments" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
